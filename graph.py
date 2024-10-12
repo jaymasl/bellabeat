@@ -17,7 +17,6 @@ def create_scatter_plot(x, y, title, x_title, y_title, text):
         p = np.poly1d(z)
         trend_x = np.linspace(min(x), max(x), 100)
         trend_y = p(trend_x)
-        
         fig.add_trace(go.Scatter(
             x=trend_x,
             y=trend_y,
@@ -25,7 +24,7 @@ def create_scatter_plot(x, y, title, x_title, y_title, text):
             line=dict(color='purple', width=2),
             name='Trend Line'
         ))
-    
+
     fig.update_layout(
         title=title,
         xaxis_title=x_title,
@@ -39,10 +38,16 @@ def create_scatter_plot(x, y, title, x_title, y_title, text):
         yaxis=dict(gridcolor='gray'),
         autosize=True,
         margin=dict(l=40, r=40, t=40, b=40),
-        showlegend=False
+        showlegend=False,
+        xaxis_fixedrange=True,
+        yaxis_fixedrange=True
     )
+
+    fig.update_layout(dragmode=False)
     
-    return fig
+    config = {'displayModeBar': False, 'staticPlot': False}
+    
+    return fig, config
 
 def get_column_data(data, column_names, column):
     index = column_names.index(column)
@@ -55,7 +60,7 @@ def steps_distance_scatterplot():
     avg_distance = get_column_data(data, column_names, 'avg_distance')
     user_ids = get_column_data(data, column_names, 'user_id')
     
-    fig = create_scatter_plot(
+    fig, config = create_scatter_plot(
         x=avg_steps,
         y=avg_distance,
         title='Average Steps vs Average Distance by User',
@@ -63,8 +68,7 @@ def steps_distance_scatterplot():
         y_title='Average Distance (km)',
         text=user_ids
     )
-    
-    return fig
+    return fig, config
 
 def calorie_active_scatterplot():
     column_names, data = get_user_averages()

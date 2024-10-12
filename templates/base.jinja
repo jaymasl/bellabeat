@@ -11,8 +11,8 @@
         <div class="container">
             <ul>
                 <li>
-                    <a href="">Menu</a>
-                    <ul class="dropdown">
+                    <a href="#" id="menuToggle">Menu</a>
+                    <ul class="dropdown" id="mobileDropdown">
                         <li><a href="{{ url_for('home') }}">Home</a></li>
                         <li><a href="{{ url_for('insight') }}">Insight</a></li>
                         <li><a href="{{ url_for('visual') }}">Visual</a></li>
@@ -31,5 +31,17 @@
             <a href="https://jaykrown.com/" target="_blank">jaykrown.com</a>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileDropdown = document.getElementById('mobileDropdown');
+            
+            menuToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                mobileDropdown.style.visibility = mobileDropdown.style.visibility === 'visible' ? 'hidden' : 'visible';
+                mobileDropdown.style.opacity = mobileDropdown.style.opacity === '1' ? '0' : '1';
+            });
+        });
+    </script>
 </body>
 </html>

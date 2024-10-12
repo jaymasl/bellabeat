@@ -1,17 +1,16 @@
 {% extends 'base.jinja' %}
 {% block title %}Visual{% endblock %}
-
 {% block content %}
+<div class="container">
+    <h1>Visualizations</h1>
     <div class="container">
-        <h1>Visualizations</h1>
-        <div class="container">
-            {{ fig0.to_html(full_html=False) | safe }}
-        </div>
-        <div class="container">
-            {{ fig1.to_html(full_html=False) | safe }}
-        </div>
-        <div class="container">
-            {{ fig2.to_html(full_html=False) | safe }}
-        </div>
+        {{ plot0 | safe }}
     </div>
+    <div class="container">
+        {{ plot1 | safe }}
+    </div>
+    <div class="container">
+        {{ plot2 | safe }}
+    </div>
+</div>
 {% endblock %}

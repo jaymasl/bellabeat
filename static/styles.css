@@ -56,6 +56,7 @@ body {
   background-color: #1E1E1E;
   z-index: 1000;
   margin-left: -45px;
+  transition: visibility 0.3s, opacity 0.3s;
 }
 
 .navbar li:hover .dropdown {
@@ -176,4 +177,11 @@ ul li {
 .outliers {
   background-color: #773400;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .navbar li:hover .dropdown {
+      visibility: hidden;
+      opacity: 0;
+  }
 }
