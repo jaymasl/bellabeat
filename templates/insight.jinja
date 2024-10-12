@@ -1,0 +1,25 @@
+{% extends 'base.jinja' %}
+{% block title %}Insight{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="stats-card">
+        <h2>Key Insights</h2>
+        <ul class="circle-list">
+            <li><strong>Data Limitations</strong>: The small sample size of 35 users and inconsistent data across metrics constrain our analysis. However, these preliminary findings offer valuable directions for further investigation.</li>
+            <li><strong>Activity Polarization</strong>: A notable split exists in user activity levels, with 11 users averaging below 5,000 daily steps and 14 exceeding 10,000. This disparity presents an opportunity for targeted interventions to engage less active users.</li>
+            <li><strong>Sleep Tracking Adoption</strong>: 17 users exhibit missing sleep data or unusually low sleep durations, highlighting the need to improve sleep tracking adoption and data accuracy.</li>
+            <li><strong>Activity Balance and Well-being</strong>: Among users with complete data, 7 demonstrate a balanced mix of activity levels (very active, lightly active, and sedentary). These users tend to report better sleep quality, suggesting potential benefits of a balanced activity profile.</li>
+            <li><strong>Heart Rate Monitoring Engagement</strong>: 20 users lack heart rate data, indicating a significant opportunity to increase engagement with this feature and leverage its potential health benefits.</li>
+            <li><strong>Comprehensive Health Tracking</strong>: Only 13 users have recorded weight data, underscoring the need to encourage more holistic health tracking for comprehensive insights.</li>
+        </ul>
+    </div>
+    <div class="stats-card">
+        <h2>Data Visualizations</h2>
+        <ul class="circle-list">
+            <li><strong>Step Count vs. Distance Correlation</strong>: A scatter plot with a quadratic trend line illustrates the relationship between average daily steps and distance covered.</li>
+            <li><strong>Step Count vs. Calorie Expenditure</strong>: This visualization depicts the correlation between average daily steps and calories burned, excluding outliers with fewer than 300 calories burned.</li>
+            <li><strong>Sleep Duration vs. Heart Rate</strong>: A comparative analysis of average sleep time and resting heart rate, filtering out users with less than 100 minutes of recorded sleep to ensure data reliability.</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

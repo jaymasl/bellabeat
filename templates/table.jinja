@@ -1,0 +1,42 @@
+{% extends "base.jinja" %}
+{% block title %}Table{% endblock %}
+
+{% block content %}
+
+<h1>Daily Averages by User</h1>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Steps</th>
+            <th>Distance (km)</th>
+            <th>Calories</th>
+            <th>Minutes Asleep</th>
+            <th>Very Active Minutes</th>
+            <th>Fairly Active Minutes</th>
+            <th>Lightly Active Minutes</th>
+            <th>Sedentary Minutes</th>
+            <th>Weight (kg)</th>
+            <th>Heart Rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in data %}
+        <tr>
+            <td>{{ user.user_id }}</td>
+            <td class="{% if (user.avg_steps|float < 3000) or (user.avg_steps|float == 0) %}outliers{% endif %}">{{ user.avg_steps }}</td>
+            <td class="{% if (user.avg_distance|float < 2) or (user.avg_distance|float == 0) %}outliers{% endif %}">{{ user.avg_distance }}</td>
+            <td class="{% if (user.avg_calories|float < 1500) or (user.avg_calories|float == 0) %}outliers{% endif %}">{{ user.avg_calories }}</td>
+            <td class="{% if (user.avg_minutes_asleep|float < 300) or (user.avg_minutes_asleep|float == 0) %}outliers{% endif %}">{{ user.avg_minutes_asleep }}</td>
+            <td class="{% if (user.avg_very_active_minutes|float < 0) or (user.avg_very_active_minutes|float == 0) %}outliers{% endif %}">{{ user.avg_very_active_minutes }}</td>
+            <td class="{% if (user.avg_fairly_active_minutes|float < 0) or (user.avg_fairly_active_minutes|float == 0) %}outliers{% endif %}">{{ user.avg_fairly_active_minutes }}</td>
+            <td class="{% if (user.avg_lightly_active_minutes|float < 150) or (user.avg_lightly_active_minutes|float == 0) %}outliers{% endif %}">{{ user.avg_lightly_active_minutes }}</td>
+            <td class="{% if (user.avg_sedentary_minutes|float < 0) or (user.avg_sedentary_minutes|float == 0) %}outliers{% endif %}">{{ user.avg_sedentary_minutes }}</td>
+            <td class="{% if (user.weight_kg|float == 0) %}outliers{% endif %}">{{ user.weight_kg }}</td>
+            <td class="{% if (user.avg_heart_rate|float == 0) %}outliers{% endif %}">{{ user.avg_heart_rate }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

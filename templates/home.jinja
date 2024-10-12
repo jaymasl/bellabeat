@@ -1,0 +1,86 @@
+{% extends 'base.jinja' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Bellabeat User Behavior Analysis</h1>
+        
+        <div class="stats-card">
+            <h2>Project Overview</h2>
+            <p>
+                This analysis examines the behavior patterns of 35 Bellabeat Leaf users, focusing on their interactions with fitness tracking technology and its impact on daily activities. 
+                The dataset, derived from Fitbit users between March and May 2016, provides insights into health metrics and user engagement trends. 
+                This project has been instrumental in developing skills in data aggregation and outlier detection.
+            </p>
+        </div>
+
+        <div class="stats-card">
+            <h2>Navigation</h2>
+            <p><strong>Access the following sections via the dropdown menu:</strong></p>
+            <ul class="circle-list">
+                <li><strong>Home:</strong> This landing page</li>
+                <li><strong>Insight:</strong> Key data findings</li>
+                <li><strong>Visual:</strong> Scatterplot correlation graphs</li>
+                <li><strong>Recommend:</strong> Data-driven recommendations</li>
+                <li><strong>Table:</strong> User averages for visualizations</li>
+            </ul>
+        </div>
+
+        <div class="stats-card">
+            <h2>Analysis Objectives</h2>
+            <ul class="circle-list">
+                <li>Identify trends in smart device usage</li>
+                <li>Apply findings to Bellabeat customer base</li>
+                <li>Inform Bellabeat marketing strategy</li>
+            </ul>
+        </div>
+
+        <div class="stats-card">
+            <h2>Deliverables</h2>
+            <ul class="circle-list">
+                <li>Concise summary of the business task</li>
+                <li>Description of data sources</li>
+                <li>Data cleaning and manipulation documentation</li>
+                <li>Analysis summary</li>
+                <li>Key findings with supporting visualizations</li>
+                <li>High-level recommendations based on analysis</li>
+            </ul>
+        </div>
+
+        <div class="stats-card">
+            <h2>Data Overview</h2>
+            <ul class="data-info">
+                <li><strong>Source:</strong> Fitabase Data (health and activity metrics)</li>
+                <li><strong>Metrics include:</strong>
+                    <ul class="circle-list">
+                        <li>Physical activity levels</li>
+                        <li>Calorie expenditure</li>
+                        <li>Heart rate measurements</li>
+                        <li>Step counts</li>
+                        <li>Sleep patterns</li>
+                        <li>Exercise intensity</li>
+                    </ul>
+                </li>
+                <li><strong>Data processing:</strong>
+                    <ul class="circle-list">
+                        <li>Aggregation using DuckDB with Python</li>
+                        <li>Consolidated tables creation</li>
+                        <li>Outlier and missing value assessment</li>
+                    </ul>
+                </li>
+                <li><strong>Dataset:</strong> <a href="https://www.kaggle.com/datasets/arashnic/fitbit" target="_blank">Available on Kaggle</a></li>
+            </ul>
+        </div>
+
+        <div class="stats-card">
+            <h2>Data Limitations</h2>
+            <ul class="circle-list">
+                <li><strong>Sample Size:</strong> Limited to 35 unique users</li>
+                <li><strong>Tracking Consistency:</strong> Irregular user tracking patterns</li>
+                <li><strong>Outliers:</strong> Presence of significant outliers</li>
+                <li><strong>Data Gaps:</strong> Missing days and metrics (e.g., height)</li>
+                <li><strong>Time Frame:</strong> Two-month period (March–May 2016)</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
